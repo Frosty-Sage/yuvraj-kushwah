@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>LEVEL 18 // YUVRAJ SINGH KUSHWAH</title>
+<meta name="description" content="An interactive birthday experience — Level 18 Unlocked.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- persistent starfield canvas -->
+<canvas id="starfield"></canvas>
+<canvas id="fx-canvas"></canvas>
+
+<!-- cursor glow -->
+<div id="cursor-glow"></div>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-mark">LSK</div>
+    <div id="loader-line" class="loader-line">INITIALIZING&hellip;</div>
+    <div class="loader-bar-track">
+      <div id="loader-bar" class="loader-bar-fill"></div>
+    </div>
+    <div id="loader-pct" class="loader-pct">0%</div>
+  </div>
+</div>
+
+<!-- EASTER EGG OVERLAY -->
+<div id="legend-overlay">
+  <span>LEGEND MODE ACTIVATED</span>
+</div>
+
+<!-- MUSIC TOGGLE -->
+<button id="music-toggle" class="hud-btn" aria-pressed="false">
+  <span class="dot"></span>
+  <span class="label">ENABLE MUSIC</span>
+</button>
+
+<!-- scroll progress -->
+<div id="scroll-progress"><div id="scroll-progress-fill"></div></div>
+
+<main id="main" class="hidden">
+
+  <!-- HERO -->
+  <section id="hero" class="section">
+    <div class="hero-eyebrow reveal">SYSTEM ONLINE // BIRTHDAY PROTOCOL</div>
+    <h1 class="hero-title">
+      <span class="line reveal">HAPPY BIRTHDAY</span>
+      <span class="line hero-name reveal" data-glow-target>YUVRAJ SINGH<br>KUSHWAH</span>
+    </h1>
+    <div class="hero-meta reveal">
+      <span class="hero-level">LEVEL <strong>18</strong></span>
+      <span class="hero-sep">/</span>
+      <span class="hero-date">19 JULY</span>
+    </div>
+    <button id="begin-btn" class="begin-btn reveal">
+      <span>BEGIN</span>
+    </button>
+    <div class="scroll-cue reveal">SCROLL TO CONTINUE</div>
+  </section>
+
+  <!-- PLAYER PROFILE -->
+  <section id="profile" class="section">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">PLAYER FILE // 001</span>
+      <h2 class="section-title">PROFILE</h2>
+    </div>
+
+    <div class="hud-card reveal">
+      <div class="hud-corner tl"></div>
+      <div class="hud-corner tr"></div>
+      <div class="hud-corner bl"></div>
+      <div class="hud-corner br"></div>
+      <div class="hud-scanline"></div>
+
+      <div class="hud-grid">
+        <div class="hud-field reveal">
+          <span class="hud-label">NAME</span>
+          <span class="hud-value">Yuvraj Singh Kushwah</span>
+        </div>
+        <div class="hud-field reveal">
+          <span class="hud-label">AGE</span>
+          <span class="hud-value hud-mono">18</span>
+        </div>
+        <div class="hud-field reveal">
+          <span class="hud-label">BIRTHDATE</span>
+          <span class="hud-value hud-mono">19 JULY</span>
+        </div>
+        <div class="hud-field reveal">
+          <span class="hud-label">STATUS</span>
+          <span class="hud-value hud-gold">LEGEND</span>
+        </div>
+        <div class="hud-field reveal">
+          <span class="hud-label">LEVEL</span>
+          <span class="hud-value hud-mono hud-gold">18</span>
+        </div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-row reveal" data-value="100">
+          <span class="stat-name">LOYALTY</span>
+          <div class="stat-track"><div class="stat-fill"></div></div>
+          <span class="stat-num">100</span>
+        </div>
+        <div class="stat-row reveal" data-value="100">
+          <span class="stat-name">HUMOUR</span>
+          <div class="stat-track"><div class="stat-fill"></div></div>
+          <span class="stat-num">100</span>
+        </div>
+        <div class="stat-row reveal" data-value="92">
+          <span class="stat-name">CHARISMA</span>
+          <div class="stat-track"><div class="stat-fill"></div></div>
+          <span class="stat-num">92</span>
+        </div>
+        <div class="stat-row reveal" data-value="90">
+          <span class="stat-name">INTELLIGENCE</span>
+          <div class="stat-track"><div class="stat-fill"></div></div>
+          <span class="stat-num">90</span>
+        </div>
+        <div class="stat-row reveal" data-value="100">
+          <span class="stat-name">BRO ENERGY</span>
+          <div class="stat-track"><div class="stat-fill"></div></div>
+          <span class="stat-num">100</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="section">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">RUN LOG</span>
+      <h2 class="section-title">TIMELINE</h2>
+    </div>
+
+    <div class="timeline-track">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">19 JULY</div>
+        <div class="timeline-text">A Legend Was Born</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">CHAPTER 01</div>
+        <div class="timeline-text">School Days</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">CHAPTER 02</div>
+        <div class="timeline-text">Countless Memories</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">CHAPTER 03</div>
+        <div class="timeline-text">Countless Laughs</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">NOW LOADING</div>
+        <div class="timeline-text">Today</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot pulse"></div>
+        <div class="timeline-date">CURRENT</div>
+        <div class="timeline-text hud-gold">Level 18</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="section">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">TROPHY CASE</span>
+      <h2 class="section-title">ACHIEVEMENTS</h2>
+    </div>
+
+    <div class="achv-grid">
+      <div class="achv-card reveal">
+        <div class="achv-icon">18</div>
+        <div class="achv-name">LEVEL 18 UNLOCKED</div>
+        <div class="achv-desc">Reached the milestone every stat was building toward.</div>
+      </div>
+      <div class="achv-card reveal">
+        <div class="achv-icon">✦</div>
+        <div class="achv-name">MASTER OF CHAOS</div>
+        <div class="achv-desc">Turns any normal day into an unplanned event.</div>
+      </div>
+      <div class="achv-card reveal">
+        <div class="achv-icon">◆</div>
+        <div class="achv-name">LEGENDARY FRIEND</div>
+        <div class="achv-desc">Shows up. Every single time. No exceptions.</div>
+      </div>
+      <div class="achv-card reveal">
+        <div class="achv-icon">▲</div>
+        <div class="achv-name">MEME PROFESSIONAL</div>
+        <div class="achv-desc">Certified in the ancient art of perfect timing.</div>
+      </div>
+      <div class="achv-card reveal">
+        <div class="achv-icon">■</div>
+        <div class="achv-name">TRUSTED BRO</div>
+        <div class="achv-desc">The one you call first. The one who always answers.</div>
+      </div>
+      <div class="achv-card reveal">
+        <div class="achv-icon">★</div>
+        <div class="achv-name">MAIN CHARACTER</div>
+        <div class="achv-desc">Every story sounds better with him in it.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTES -->
+  <section id="quotes" class="section quote-section">
+    <div class="quote-slide reveal">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="quote-text">Legends don't grow older.<br>They level up.</p>
+    </div>
+  </section>
+  <section class="section quote-section">
+    <div class="quote-slide reveal">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="quote-text">Friends become brothers.</p>
+    </div>
+  </section>
+  <section class="section quote-section">
+    <div class="quote-slide reveal">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="quote-text">Stay humble.<br>Stay fearless.</p>
+    </div>
+  </section>
+
+  <!-- PERSONAL MESSAGE -->
+  <section id="message" class="section">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">TRANSMISSION</span>
+      <h2 class="section-title">A MESSAGE FOR YOU</h2>
+    </div>
+    <div class="message-box reveal">
+      <p id="typewriter-text" class="typewriter"></p>
+      <span id="typewriter-cursor" class="typewriter-cursor">|</span>
+    </div>
+  </section>
+
+  <!-- FINALE -->
+  <section id="finale" class="section">
+    <div class="finale-content">
+      <div class="finale-line reveal">LEVEL 18</div>
+      <div class="finale-line finale-complete reveal">COMPLETE</div>
+      <div class="finale-divider reveal"></div>
+      <div class="finale-sub reveal">HAPPY BIRTHDAY</div>
+      <div class="finale-name reveal">YUVRAJ SINGH KUSHWAH</div>
+      <div class="finale-date reveal">19 JULY</div>
+      <div class="finale-tag reveal">THE JOURNEY CONTINUES&hellip;</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Built with care. Not a single balloon was harmed in the making of this site.</span>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
